@@ -1,0 +1,56 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/general.css" />
+	</styles>
+		<!-- Include script files -->
+	<scripts>
+		<!-- Libraries -->
+		<include src="file://{resources}/scripts/custom_game/Modular.js" />
+		<include src="file://{resources}/scripts/custom_game/team_select.js" />
+	</scripts>
+	<script>
+
+		var slaves = ["npc_dota_hero_tinker", "npc_dota_hero_antimage", "npc_dota_hero_crystal_maiden", "npc_dota_hero_nevermore", "npc_dota_hero_juggernaut"];
+		$.Each( slaves, function( hero ) {
+			var playerPanel = Modular.Spawn( "picking_player", $("#LeftPlayers") );
+			playerPanel.SetHero(hero);
+
+		});
+
+		var masters = ["npc_dota_hero_pudge", "npc_dota_hero_earthshaker"];
+		$.Each( masters, function( hero ) {
+			var playerPanel = Modular.Spawn( "picking_player", $("#RightPlayers") );
+			playerPanel.SetHero(hero);
+
+		});
+
+	</script>
+
+  <Panel class="TeamSelection" hittest="false" style="width: 100%; height: 100%;">
+ 
+  	<Panel hittest="true" id="PickingScreen">
+			<!--Left-hand player section 
+			==================================================================-->
+			<Panel class="TeamSelectPlayer">
+				<DOTAAvatarImage id="PlayerAvatar" />
+				<Label id="PlayerName" text="PLAYER_NAME" />
+			</Panel>
+
+			<Panel id="LeftPlayers">
+				<!-- JS Inserts player elements here -->
+				<Label class="Title" text="master" />
+
+			</Panel>
+
+			<!-- Right-hand player section 
+			==================================================================-->
+			<Panel id="RightPlayers">
+				<!-- JS Inserts player elements here -->
+				<Label class="Title" text="master" />
+
+			</Panel>
+
+  	</Panel>
+  </Panel>  
+
+</root>
