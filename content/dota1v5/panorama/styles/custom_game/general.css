@@ -53,6 +53,23 @@
 	ui-scale: 150%;
 }
 
+#PickingAbility
+{
+	flow-children: right-wrap;
+}
+
+.AbilityIcon
+{
+	width: 100px;
+	height: 100px;
+	border: 2px solid #111111FF;
+}
+
+.AbilityIcon:hover {
+	border: 2px solid #FFFFFF;
+	ui-scale: 100%;
+}
+
 #ShuffleTeamAssignmentButton
 {    
     height: 32px;
@@ -88,4 +105,33 @@
 #ShuffleTeamAssignmentButton:hover Image
 {
 	wash-color: white;
+}
+
+/* 'Enter game' button
+=================================================================*/
+#EnterGameBtn {
+	horizontal-align: center;
+	margin-top: 20px;
+
+	box-shadow: fill #00000066 -4px -4px 8px 8px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5AA15E ), to( #87d69533 ) );
+	background-image: url("s2r://panorama/images/backgrounds/background_play_button_large_2x_png.vtex");
+	background-size: 320px 120px;
+	height: 55px;
+	width: 420px;
+	padding-top: 6px;
+}
+
+#EnterGameBtn.disabled, #EnterGameBtn.disabled:Hover {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #9C9C9C ), to( #D1D1D133 ) );
+}
+
+#EnterGameBtn:Hover {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #6FDE75 ), to( #87d69533 ) );
+}
+
+#EnterGameBtn Label {
+	horizontal-align: center;
+	color: #fff;
+	font-size: 36px;
 }

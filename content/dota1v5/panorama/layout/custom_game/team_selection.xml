@@ -45,7 +45,7 @@
 
 			<Panel id="LeftPlayers">
 				<!-- JS Inserts player elements here -->
-				<Label class="Title" text="master" />
+				<Label class="Title" text="slave" />
 
 			</Panel>
 

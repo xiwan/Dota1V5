@@ -55,4 +55,5 @@
 		<Panel id="HeroPanel" class="HeroIcon"/>
 		<Label id="HeroName"/>
 	</Panel>
+
 </root>

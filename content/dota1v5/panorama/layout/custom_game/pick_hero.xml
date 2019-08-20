@@ -5,10 +5,10 @@
     <!-- Include script files -->
   <scripts>
     <!-- Libraries -->
-
+    <include src="file://{resources}/scripts/custom_game/Modular.js" />
   </scripts>
   <script>
-function OnLockAndStartPressed()
+function EnterGame()
 {
 
   GameEvents.SendCustomGameEventToServer( "GoNext", { HeroName:"npc_dota_hero_tinker"} );
@@ -22,15 +22,28 @@ function OnLockAndStartPressed()
   $.Msg(Game.GetAutoLaunchEnabled());
   
 }
+
+    var abilities = ["abaddon_death_coil", "abaddon_aphotic_shield", "abaddon_frostmourne", "abyssal_underlord_firestorm"];
+    $.Each( abilities, function( abli ) {
+      var playerPanel = Modular.Spawn( "picking_ability", $("#PickingAbility") );
+      playerPanel.SetAbility(abli);
+    });
+
   </script>
 
   <Panel class="TeamSelection" hittest="false" style="width: 100%; height: 100%;">
     <Panel hittest="true" id="PickingHero">
       <Label class="Title" text="Heros" />
-      <Button id="ShuffleTeamAssignmentButton" onactivate="OnLockAndStartPressed()">
-        <Label text="custom_game_team_select_shuffle" />
-        <Image src="file://{images}/control_icons/shuffle.psd" />
-      </Button>
+      <Panel hittest="true" id="PickingAbility">
+
+      </Panel>
+
+      <Panel id="PostPickScreen">
+        <Button id="EnterGameBtn" onactivate="EnterGame()" >
+          <Label id="EnterGameBtnTxt" text="EnterGame..." />
+        </Button>
+      </Panel>
+
     </Panel>
   </Panel>
 </root>

@@ -1,0 +1,50 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/Modular.js" />
+		<include src="file://{resources}/scripts/custom_game/team_select.js" />
+	</scripts>
+
+	<styles>
+		<include src="file://{resources}/styles/custom_game/modules/picking_player.css" />
+	</styles>
+
+	<script> 
+		//Module definition
+		Modular.DefineThis({
+
+			//Set the player for this avatar
+			SetPlayer : function( playerID ) {
+				var pID = playerID;
+				var playerInfo = Game.GetPlayerInfo( playerID );
+				$('#PlayerAvatar').steamid = playerInfo.player_steamid;
+			},
+
+			//Sets if the panel is on the right or left side of the screen
+			SetIsRight : function( isRight ) {
+				var panel = $.GetContextPanel();
+				if (isRight) {
+					panel.AddClass( "right" );
+					//Swap the order of elements
+					panel.MoveChildBefore( $("#HeroPanel"), $("#PlayerAvatar") );
+				} else {
+					panel.RemoveClass( "right" );
+					//Swap the order of elements
+					panel.MoveChildBefore( $("#PlayerAvatar"), $("#HeroPanel") );
+				}
+			},
+
+			//Set the hero of the player, then set the transform to none,
+			//which animates the hero portrait panel
+			SetAbility : function( ablitityName ) {
+				$('#selectAbility').abilityname= ablitityName; 
+			}
+
+		});
+
+	</script>
+
+	<Panel class="AbilityIcon" >
+    <DOTAAbilityImage id="selectAbility" abilityname="abaddon_death_coil" />
+  </Panel>
+
+</root>
