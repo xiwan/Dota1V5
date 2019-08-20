@@ -44,7 +44,6 @@
 						SelectHero(heroName);
 				  }
 				);
-				$.Msg($('#HeroPanel'));
 				$('#HeroName').text = heroName; 
 			}
 		});

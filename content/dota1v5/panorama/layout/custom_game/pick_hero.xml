@@ -1,0 +1,36 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/general.css" />
+  </styles>
+    <!-- Include script files -->
+  <scripts>
+    <!-- Libraries -->
+
+  </scripts>
+  <script>
+function OnLockAndStartPressed()
+{
+
+  GameEvents.SendCustomGameEventToServer( "GoNext", { HeroName:"npc_dota_hero_tinker"} );
+  //$.Msg(Players.GetLocalPlayer());
+  //$.Msg(Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer()));
+  //$.Msg(Game.GetState());
+  //$('#PickingHero').DeleteAsync( 1.0 );
+  Game.SetAutoLaunchEnabled( false );
+  Game.SetAutoLaunchDelay(3);
+  Game.SetRemainingSetupTime( 0 );
+  $.Msg(Game.GetAutoLaunchEnabled());
+  
+}
+  </script>
+
+  <Panel class="TeamSelection" hittest="false" style="width: 100%; height: 100%;">
+    <Panel hittest="true" id="PickingHero">
+      <Label class="Title" text="Heros" />
+      <Button id="ShuffleTeamAssignmentButton" onactivate="OnLockAndStartPressed()">
+        <Label text="custom_game_team_select_shuffle" />
+        <Image src="file://{images}/control_icons/shuffle.psd" />
+      </Button>
+    </Panel>
+  </Panel>
+</root>

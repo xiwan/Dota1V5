@@ -21,7 +21,14 @@
 		$.Each( masters, function( hero ) {
 			var playerPanel = Modular.Spawn( "picking_player", $("#RightPlayers") );
 			playerPanel.SetHero(hero);
+		});
 
+		GameEvents.Subscribe("AfterTeamSelection", function(data){
+			$('#PickingScreen').style.visibility = "collapse";
+			$.Msg(data);
+			var parentPanel = $.GetContextPanel(); // the root panel of the current XML context
+		  var newChildPanel = $.CreatePanel( "Panel", parentPanel, "PickHero" );
+		  newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/pick_hero.xml", false, false );
 		});
 
 	</script>
