@@ -10,6 +10,8 @@
 	{
 		"override_hero"				"npc_dota_hero_templar_assassin"			// Hero to override
 		"Ability1"					"templar_assassin_refraction_holdout"		// Ability 1
+    "Ability2"          "terrorblade_conjure_image"   // Ability 2
+    "Ability3"          "techies_stasis_trap"   // Ability 3
 		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
 	}
 }

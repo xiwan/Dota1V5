@@ -10,7 +10,7 @@
 	</scripts>
 	<script>
 
-		var slaves = ["npc_dota_hero_tinker", "npc_dota_hero_antimage", "npc_dota_hero_crystal_maiden", "npc_dota_hero_nevermore", "npc_dota_hero_juggernaut"];
+		var slaves = ["npc_dota_hero_templar_assassin", "npc_dota_hero_antimage", "npc_dota_hero_crystal_maiden", "npc_dota_hero_nevermore", "npc_dota_hero_juggernaut"];
 		$.Each( slaves, function( hero ) {
 			var playerPanel = Modular.Spawn( "picking_player", $("#LeftPlayers") );
 			playerPanel.SetHero(hero);

@@ -22,12 +22,12 @@ function EnterGame()
   $.Msg(Game.GetAutoLaunchEnabled());
   
 }
-
-    var abilities = ["abaddon_death_coil", "abaddon_aphotic_shield", "abaddon_frostmourne", "abyssal_underlord_firestorm"];
-    $.Each( abilities, function( abli ) {
-      var playerPanel = Modular.Spawn( "picking_ability", $("#PickingAbility") );
-      playerPanel.SetAbility(abli);
-    });
+$.Msg("PostPickScreen");
+var abilities = ["abaddon_death_coil", "abaddon_aphotic_shield", "abaddon_frostmourne", "abyssal_underlord_firestorm"];
+$.Each( abilities, function( abli ) {
+  var playerPanel = Modular.Spawn( "picking_ability", $("#PickingAbility") );
+  playerPanel.SetAbility(abli);
+});
 
   </script>
 
