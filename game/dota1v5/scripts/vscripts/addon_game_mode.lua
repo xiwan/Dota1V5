@@ -48,7 +48,17 @@ function _G.Dota1V5:OnGameRulesStateChange(keys)
 	local state = GameRules:State_Get()
 	
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		GameRules:GetGameModeEntity():SetBotsInLateGame( false )
+		GameRules:GetGameModeEntity():SetBotThinkingEnabled( false )
+		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 2)
+		GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 2)
+
 		PlayerResource:SetCustomTeamAssignment( 0, DOTA_TEAM_GOODGUYS )
+		PlayerResource:SetCustomTeamAssignment( 1, DOTA_TEAM_GOODGUYS )
+		Tutorial:AddBot("npc_dota_hero_witch_doctor","mid","passive",false)
+		--PlayerResource:SetCustomTeamAssignment( 1, DOTA_TEAM_BADGUYS )
+		--PlayerResource:GetPlayer(1):MakeRandomHeroSelection()
+
 		GameRules:SetCustomGameSetupTimeout(0)
 		GameRules:EnableCustomGameSetupAutoLaunch( false )
 		print("DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP")
